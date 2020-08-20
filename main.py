@@ -7,8 +7,7 @@ from tkinter import filedialog, messagebox
 def choose_pic():
     global current_image
     place_image.grid_forget()
-    filename = filedialog.askopenfilename(initialdir='D:\кек\Cool',
-                                          title='Choose file',
+    filename = filedialog.askopenfilename(title='Choose file',
                                           filetypes=(('all files', '*.*'), ('png files', '*.png'), ('JPEG files', '*.jpg'))
                                           )
     try:
@@ -18,14 +17,15 @@ def choose_pic():
     except OSError:
         messagebox.showerror("Error", "Unsupported file type")
         choose_pic()
+    except AttributeError:
+        print('de kartinka? (((')
 
 
 def change_dir(path):
-    global myfiles, directory
+    global myfiles, directory, count
     directory = os.path.dirname(path)
     myfiles = os.listdir(directory)
-    print(directory)
-    print(myfiles)
+    count = 0
 
 
 def resize_image():
@@ -84,11 +84,11 @@ root = Tk()
 root.title('Image Viewer')
 root.iconbitmap('icon.ico')
 
-myfiles = os.listdir('img')
-directory = 'img'
+myfiles = os.listdir('sample_img')
+directory = 'sample_img'
 
 count = 0
-current_image = Image.open('img/{x}'.format(x=myfiles[count]))
+current_image = Image.open('sample_img/{x}'.format(x=myfiles[count]))
 
 forward_button = Button(text='Forward', command=next_pic)
 back_button = Button(text='Back', command=previous_pic)
