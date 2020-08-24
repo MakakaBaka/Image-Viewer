@@ -7,13 +7,13 @@ from tkinter import filedialog, messagebox
 def choose_pic():
     global current_image
     place_image.grid_forget()
-    filename = filedialog.askopenfilename(title='Choose file',
+    path_to_file = filedialog.askopenfilename(title='Choose file',
                                           filetypes=(('all files', '*.*'), ('png files', '*.png'), ('JPEG files', '*.jpg'))
                                           )
     try:
-        current_image = Image.open(filename)
+        current_image = Image.open(path_to_file)
         create_pic()
-        change_dir(filename)
+        change_dir(path_to_file)
     except OSError:
         messagebox.showerror("Error", "Unsupported file type")
         choose_pic()
@@ -25,7 +25,8 @@ def change_dir(path):
     global myfiles, directory, count
     directory = os.path.dirname(path)
     myfiles = os.listdir(directory)
-    count = 0
+    filename = os.path.basename(path)
+    count = myfiles.index(filename)
 
 
 def resize_image():
@@ -62,6 +63,7 @@ def next_pic():
         create_pic()
     except OSError:
         next_pic()
+    print(count)
 
 
 def previous_pic():
@@ -78,6 +80,7 @@ def previous_pic():
         create_pic()
     except OSError:
         previous_pic()
+    print(count)
 
 
 root = Tk()
@@ -86,7 +89,6 @@ root.iconbitmap('icon.ico')
 
 myfiles = os.listdir('sample_img')
 directory = 'sample_img'
-
 count = 0
 current_image = Image.open('sample_img/{x}'.format(x=myfiles[count]))
 
