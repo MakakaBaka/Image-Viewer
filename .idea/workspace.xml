@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -25,7 +32,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="img_viewer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="image_viewer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\pytun\image_viewer\img_viewer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="image_viewer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -50,6 +78,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.img_viewer" />
       </list>
     </recent_temporary>
   </component>
@@ -66,34 +95,49 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="139" y="18" width="1092" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594842746061">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="139" y="18" width="1092" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1594842746061" />
-    <state width="1308" height="156" key="GridCell.Tab.0.bottom" timestamp="1595523483785">
+    <state width="1344" height="174" key="GridCell.Tab.0.bottom" timestamp="1598537033038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595523483785" />
-    <state width="1308" height="156" key="GridCell.Tab.0.center" timestamp="1595523483785">
+    <state width="1344" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598537033038" />
+    <state width="1344" height="174" key="GridCell.Tab.0.center" timestamp="1598537033038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="156" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595523483785" />
-    <state width="1308" height="156" key="GridCell.Tab.0.left" timestamp="1595523483785">
+    <state width="1344" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1598537033038" />
+    <state width="1344" height="174" key="GridCell.Tab.0.left" timestamp="1598537033038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="156" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595523483785" />
-    <state width="1308" height="156" key="GridCell.Tab.0.right" timestamp="1595523483785">
+    <state width="1344" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1598537033038" />
+    <state width="1344" height="174" key="GridCell.Tab.0.right" timestamp="1598537033038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1308" height="156" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595523483785" />
+    <state width="1344" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598537033038" />
+    <state x="507" y="74" key="RollbackChangesDialog" timestamp="1598535538708">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="507" y="74" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598535538708" />
     <state x="186" y="0" key="SettingsEditor" timestamp="1594842729454">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594842729454" />
-    <state x="401" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1595522162280">
+    <state x="401" y="262" key="com.intellij.ide.util.TipDialog" timestamp="1598532846196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="401" y="262" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1595522162280" />
+    <state x="401" y="262" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1598532846196" />
   </component>
 </project>

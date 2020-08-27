@@ -4,6 +4,31 @@ import os
 from tkinter import filedialog, messagebox
 
 
+# Tkinter decided that 'image_ready' should be global for it`s own reasons
+def create_pic(image):
+    global place_image, image_ready
+    place_image.grid_forget()
+    image = resize_image(image)
+    image_ready = ImageTk.PhotoImage(image)
+    place_image = Label(image=image_ready, width=image.width, height=image.height)
+    place_image.grid(row=1, column=0, columnspan=3)
+
+
+def resize_image(image):
+    # Measuring screen resolution and subtracting some numbers for better fitting of images
+    screen_width = root.winfo_screenwidth() - 50
+    screen_height = root.winfo_screenheight() - 100
+    if image.height > screen_height:
+        new_height = screen_height
+        new_width = image.width * (screen_height / image.height)
+        image = image.resize((int(new_width), new_height))
+    if image.width > screen_width:
+        new_width = screen_width
+        new_height = image.height * (screen_width / image.width)
+        image = image.resize((new_width, int(new_height)))
+    return image
+
+
 def choose_pic():
     place_image.grid_forget()
     path_to_file = filedialog.askopenfilename(title='Choose file',
@@ -26,31 +51,6 @@ def change_dir(path):
     myfiles = os.listdir(directory)
     filename = os.path.basename(path)
     count = myfiles.index(filename)
-
-
-def resize_image(image):
-    # Measuring screen resolution and subtracting some numbers for better fitting of images
-    screen_width = root.winfo_screenwidth() - 50
-    screen_height = root.winfo_screenheight() - 100
-    if image.height > screen_height:
-        new_height = screen_height
-        new_width = image.width * (screen_height / image.height)
-        image = image.resize((int(new_width), new_height))
-    if image.width > screen_width:
-        new_width = screen_width
-        new_height = image.height * (screen_width / image.width)
-        image = image.resize((new_width, int(new_height)))
-    return image
-
-
-# Tkinter decided that 'image_ready' should be global for it`s own reasons
-def create_pic(image):
-    global place_image, image_ready
-    place_image.grid_forget()
-    image = resize_image(image)
-    image_ready = ImageTk.PhotoImage(image)
-    place_image = Label(image=image_ready, width=image.width, height=image.height)
-    place_image.grid(row=1, column=0, columnspan=3)
 
 
 def next_pic():
@@ -79,6 +79,24 @@ def previous_pic():
         previous_pic()
 
 
+# Keyboard binds:
+
+def right_button_click(event):
+    next_pic()
+
+
+def left_button_click(event):
+    previous_pic()
+
+
+def enter_button_click(event):
+    choose_pic()
+
+
+def esc_button_click(event):
+    root.destroy()
+
+
 root = Tk()
 root.title('Image Viewer')
 root.iconbitmap('icon.ico')
@@ -99,5 +117,10 @@ choose_button = Button(text='Open picture', command=choose_pic)
 forward_button.grid(row=0, column=2)
 back_button.grid(row=0, column=0)
 choose_button.grid(row=0, column=1)
+
+root.bind("<Right>", right_button_click)
+root.bind("<Left>", left_button_click)
+root.bind("<Return>", enter_button_click)
+root.bind("<Escape>", esc_button_click)
 
 root.mainloop()
