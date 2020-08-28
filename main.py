@@ -6,12 +6,12 @@ from tkinter import filedialog, messagebox
 
 # Tkinter decided that 'image_ready' should be global for it`s own reasons
 def create_pic(image):
-    global place_image, image_ready
-    place_image.grid_forget()
-    image = resize_image(image)
-    image_ready = ImageTk.PhotoImage(image)
-    place_image = Label(image=image_ready, width=image.width, height=image.height)
-    place_image.grid(row=1, column=0, columnspan=3)
+    global image_field, image_ready
+    image_field.grid_forget()
+    image_fit = resize_image(image)
+    image_ready = ImageTk.PhotoImage(image_fit)
+    image_field = Label(image=image_ready, width=image_fit.width, height=image_fit.height)
+    image_field.grid(row=1, column=0, columnspan=3)
 
 
 def resize_image(image):
@@ -30,7 +30,8 @@ def resize_image(image):
 
 
 def choose_pic():
-    place_image.grid_forget()
+    global pic
+    image_field.grid_forget()
     path_to_file = filedialog.askopenfilename(title='Choose file',
                                           filetypes=(('all files', '*.*'), ('png files', '*.png'), ('JPEG files', '*.jpg'))
                                           )
@@ -46,34 +47,34 @@ def choose_pic():
 
 
 def change_dir(path):
-    global myfiles, directory, count
+    global index, directory
     directory = os.path.dirname(path)
-    myfiles = os.listdir(directory)
+    myfiles[:] = os.listdir(directory)
     filename = os.path.basename(path)
-    count = myfiles.index(filename)
+    index = myfiles.index(filename)
 
 
 def next_pic():
-    global count
-    place_image.grid_forget()
-    count += 1
-    if count == len(myfiles):
-        count = 0
+    global index
+    image_field.grid_forget()
+    index += 1
+    if index == len(myfiles):
+        index = 0
     try:
-        image = Image.open('{dir}/{x}'.format(dir=directory, x=myfiles[count]))
+        image = Image.open('{dir}/{x}'.format(dir=directory, x=myfiles[index]))
         create_pic(image)
     except OSError:
         next_pic()
 
 
 def previous_pic():
-    global count
-    place_image.grid_forget()
-    count -= 1
-    if count == -1:
-        count = len(myfiles) - 1
+    global index
+    image_field.grid_forget()
+    index -= 1
+    if index == -1:
+        index = len(myfiles) - 1
     try:
-        image = Image.open('{dir}/{x}'.format(dir=directory, x=myfiles[count]))
+        image = Image.open('{dir}/{x}'.format(dir=directory, x=myfiles[index]))
         create_pic(image)
     except OSError:
         previous_pic()
@@ -103,12 +104,12 @@ root.iconbitmap('icon.ico')
 
 myfiles = os.listdir('sample_img')
 directory = 'sample_img'
-count = 0
+index = 0
 
-starting_image = Image.open('sample_img/{x}'.format(x=myfiles[count]))
+starting_image = Image.open('sample_img/{x}'.format(x=myfiles[index]))
 starting_image_ready = ImageTk.PhotoImage(starting_image)
-place_image = Label(image=starting_image_ready, width=starting_image.width, height=starting_image.height)
-place_image.grid(row=1, column=0, columnspan=3)
+image_field = Label(image=starting_image_ready, width=starting_image.width, height=starting_image.height)
+image_field.grid(row=1, column=0, columnspan=3)
 
 forward_button = Button(text='Forward', command=next_pic)
 back_button = Button(text='Back', command=previous_pic)
